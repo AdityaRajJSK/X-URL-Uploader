@@ -51,8 +51,8 @@ async def echo(bot, update):
             await pablo.edit_text('Downloading...')
             bypasser = lk21.Bypass()
             xurl = bypasser.bypass_url(url)
-            if ' | ' in url:
-                url_parts = url.split(' | ')
+            if '|' in url:
+                url_parts = url.split('|')
                 url = url_parts[0]
                 file_name = url_parts[1]
             else:
