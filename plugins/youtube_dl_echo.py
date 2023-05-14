@@ -214,11 +214,8 @@ async def echo(bot, update):
                 x_reponse, _ = x_reponse.split("\n")
             response_json = json.loads(x_reponse)
             
-            if not os.path.isdir(Config.DOWNLOAD_LOCATION + \
-                "/" + str(update.from_user.id)):
             os.makedirs(Config.DOWNLOAD_LOCATION + \
-                "/" + str(update.from_user.id))
-            pass
+                "/" + str(update.from_user.id), exist_ok = True)
             
             save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id) + "/" + file_name.replace(".mp4", "") + ".json"
