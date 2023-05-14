@@ -16,6 +16,7 @@ import shutil
 import time
 from datetime import datetime
 import subprocess
+from os.path import exists
 
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
