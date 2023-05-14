@@ -246,7 +246,8 @@ async def youtube_dl_call_back(bot, update):
                 
             else:
                 video_input_path=download_directory
-                img_output_path="/temp/thumb.jpg"
+                img_output_path = Config.DOWNLOAD_LOCATION + \
+        "/" + str(update.from_user.id) + "/thumb.jpg"
                 subprocess.call(['ffmpeg', '-i', video_input_path, '-ss', '00:00:02.000', '-vframes', '1', img_output_path])
                 thumb_image_path=img_output_path
                 width = 0
