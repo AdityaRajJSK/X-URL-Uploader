@@ -218,6 +218,7 @@ async def echo(bot, update):
                 "/" + str(update.from_user.id)):
             os.makedirs(Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id))
+            pass
             
             save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id) + "/" + file_name.replace(".mp4", "") + ".json"
