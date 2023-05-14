@@ -42,9 +42,9 @@ async def youtube_dl_call_back(bot, update):
     cb_data = update.data
     # youtube_dl extractors
     ytdl_name = update.message.reply_to_message.text
-    if "|" in youtube_dl_url:
-        url_parts = ytdl_name.split("|")
-        ytdl_file_name = url_parts[1]
+    if "|" in ytdl_name:
+        ytdl_parts = ytdl_name.split("|")
+        ytdl_file_name = ytdl_parts[1]
         
     tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
     thumb_image_path = Config.DOWNLOAD_LOCATION + \
