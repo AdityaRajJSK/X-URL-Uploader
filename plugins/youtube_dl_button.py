@@ -295,7 +295,7 @@ async def youtube_dl_call_back(bot, update):
                     # performer=response_json["uploader"],
                     # title=response_json["title"],
                     # reply_markup=reply_markup,
-                    thumb=thumb_image_path,
+                    thumb=None,
                     reply_to_message_id=update.message.reply_to_message.message_id,
                     progress=progress_for_pyrogram,
                     progress_args=(
@@ -308,7 +308,7 @@ async def youtube_dl_call_back(bot, update):
                 await bot.send_document(
                     chat_id=update.message.chat.id,
                     document=download_directory,
-                    thumb=thumb_image_path,
+                    thumb=None,
                     caption = "<b>" + description + "</b>",
                     parse_mode="HTML",
                     # reply_markup=reply_markup,
