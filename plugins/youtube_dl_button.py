@@ -41,16 +41,11 @@ from helper_funcs.help_Nekmo_ffmpeg import generate_screen_shots
 async def youtube_dl_call_back(bot, update):
     cb_data = update.data
     # youtube_dl extractors
-    ytdl_name = update.message.reply_to_message.text
-    if "|" in ytdl_name:
-        ytdl_parts = ytdl_name.split("|")
-        ytdl_file_name = ytdl_parts[1]
-        
     tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
     thumb_image_path = Config.DOWNLOAD_LOCATION + \
         "/" + str(update.from_user.id) + ".jpg"
     save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
-        "/" + str(update.from_user.id) + "/" + ytdl_file_name + ".json"
+        "/" + str(update.from_user.id) + ".json"
     try:
         with open(save_ytdl_json_path, "r", encoding="utf8") as f:
             response_json = json.load(f)
