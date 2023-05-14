@@ -48,9 +48,13 @@ async def youtube_dl_call_back(bot, update):
     countnumb=0
     save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
         "/" + str(update.from_user.id) + "-" + countnumb + ".json"
-    
-    for os.path.exists(save_ytdl_json_path):
+    while true :
+    if os.path.exists(save_ytdl_json_path):
       countnumb = countnumb + 1
+    else:
+      save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
+        "/" + str(update.from_user.id) + "-" + countnumb + ".json"
+      break
     
     try:
         with open(save_ytdl_json_path, "r", encoding="utf8") as f:
