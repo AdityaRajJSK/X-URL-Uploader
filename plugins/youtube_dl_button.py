@@ -245,10 +245,10 @@ async def youtube_dl_call_back(bot, update):
                 # https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#create-thumbnails
                 
             else:
-                video_input_path=download_directory,
-                img_output_path="/temp/thumb.jpg",
+                video_input_path=download_directory
+                img_output_path="/temp/thumb.jpg"
                 subprocess.call(['ffmpeg', '-i', video_input_path, '-ss', '00:00:02.000', '-vframes', '1', img_output_path])
-                thumb_image_path=img_output_path,
+                thumb_image_path=img_output_path
                 width = 0
                 height = 0
                 metadata = extractMetadata(createParser(thumb_image_path))
@@ -299,7 +299,7 @@ async def youtube_dl_call_back(bot, update):
                     document=download_directory,
                     thumb=thumb_image_path,
                     caption=description,
-                    parse_mode="HTML", to
+                    parse_mode="HTML",
                     # reply_markup=reply_markup,
                     reply_to_message_id=update.message.reply_to_message.message_id,
                     progress=progress_for_pyrogram,
