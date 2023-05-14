@@ -214,9 +214,8 @@ async def echo(bot, update):
                 x_reponse, _ = x_reponse.split("\n")
             response_json = json.loads(x_reponse)
             
-            if os.path.isdir(Config.DOWNLOAD_LOCATION + \
+            if not os.path.isdir(Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id)):
-              return
             os.makedirs(Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id))
             
