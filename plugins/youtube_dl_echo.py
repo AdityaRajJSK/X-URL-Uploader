@@ -214,7 +214,7 @@ async def echo(bot, update):
                 x_reponse, _ = x_reponse.split("\n")
             response_json = json.loads(x_reponse)
             save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
-                "/" + str(update.from_user.id) + ".json"
+                "/" + str(update.from_user.id) + "/" + file_name.replace(".mp4", "") + ".json"
             with open(save_ytdl_json_path, "w", encoding="utf8") as outfile:
                 json.dump(response_json, outfile, ensure_ascii=False)
             # logger.info(response_json)
