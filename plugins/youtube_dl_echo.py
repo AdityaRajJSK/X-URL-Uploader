@@ -213,8 +213,12 @@ async def echo(bot, update):
             if "\n" in x_reponse:
                 x_reponse, _ = x_reponse.split("\n")
             response_json = json.loads(x_reponse)
+            
+            if not os.path.isdir(Config.DOWNLOAD_LOCATION + \
+                "/" + str(update.from_user.id)):
             os.mkdir(Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id))
+            
             save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id) + "/" + file_name.replace(".mp4", "") + ".json"
             with open(save_ytdl_json_path, "w", encoding="utf8") as outfile:
