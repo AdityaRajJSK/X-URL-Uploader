@@ -214,9 +214,8 @@ async def echo(bot, update):
                 x_reponse, _ = x_reponse.split("\n")
             response_json = json.loads(x_reponse)
             
-            if not os.path.isdir(Config.DOWNLOAD_LOCATION + \
-                "/" + str(update.from_user.id)):
-            os.mkdir(Config.DOWNLOAD_LOCATION + \
+            try:
+            os.makedirs(Config.DOWNLOAD_LOCATION + \
                 "/" + str(update.from_user.id))
             
             save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
