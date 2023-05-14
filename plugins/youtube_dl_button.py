@@ -352,7 +352,7 @@ async def youtube_dl_call_back(bot, update):
             end_two = datetime.now()
             time_taken_for_upload = (end_two - end_one).seconds
             #
-            media_album_p = []
+            """media_album_p = []
             if images is not None:
                 i = 0
                 caption = "© @xTeamBots"
@@ -375,7 +375,7 @@ async def youtube_dl_call_back(bot, update):
                                 )
                             )
                         i = i + 1
-            """await bot.send_media_group(
+            await bot.send_media_group(
                 chat_id=update.message.chat.id,
                 disable_notification=True,
                 reply_to_message_id=update.message.message_id,
@@ -383,7 +383,8 @@ async def youtube_dl_call_back(bot, update):
             )"""
             #
             try:
-                shutil.rmtree(tmp_directory_for_each_user)
+                #shutil.rmtree(tmp_directory_for_each_user)
+                os.remove(download_directory)
                 os.remove(thumb_image_path)
             except:
                 pass
